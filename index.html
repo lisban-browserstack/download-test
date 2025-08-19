@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download PDF</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 15px 30px;
+            background-color: #ffffff;
+            color: #5563DE;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #f4f4f4;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadFile()">Download PDF</button>
+
+    <script>
+        function downloadFile() {
+            const fileUrl = 'sample.pdf'; // PDF in same folder
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = ''; // Leaving this empty makes browser ask for name
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
